@@ -12,9 +12,14 @@ Name:
   Wishes and witches
 
 Art:
-  Girls
-  Holloween
-
+  Girls x5
+  Locations:
+    School
+    Mall
+    Home
+    Pumpkin Patch
+    
+  
 
 
 Engine:
@@ -22,3 +27,5 @@ Engine:
   branches to 1-0, 1-1, 1-2, ...
   each state has a text file with state #, text, options
   options have text and next state
+  Map generated based on choices
+
