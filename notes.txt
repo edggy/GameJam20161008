@@ -1,0 +1,24 @@
+Platformer collect wishes
+
+top-down puzzle collect wishes
+
+Story driven game Date-sim
+- Get wish as story progresses
+- Wish adds new option
+- Must save all wishes to the end
+- Each character has a wish, must get all wishes
+
+Name:
+  Wishes and witches
+
+Art:
+  Girls
+  Holloween
+
+
+
+Engine:
+  start at state 0-0
+  branches to 1-0, 1-1, 1-2, ...
+  each state has a text file with state #, text, options
+  options have text and next state
