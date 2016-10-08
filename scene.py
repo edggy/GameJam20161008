@@ -1,4 +1,5 @@
 import tkinter as tk
+from PIL import ImageTk
 
 '''
 Scene is the top half of the window that shows the background and has slots to place chacters.
@@ -8,10 +9,13 @@ Scene is the top half of the window that shows the background and has slots to p
 class Scene(tk.Frame):
     def __init__(self, master = None, initBackground = None, scale=0.5):
         tk.Frame.__init__(self, master)
-        self.scene = tk.Canvas(self, width=scale*1920, height=scale*1080)
+        self.scale = scale
+        self.scene = tk.Canvas(self, width=self.scale*1920, height=self.scale*1080)
+        self.scene.pack(fill=tk.BOTH, expand=tk.YES)
         self.background = initBackground
-        self.scene.pack(side='top')
+        self.scene.pack(side=tk.TOP)
         self.characters = []
+        self.draw()
     
     def changeBackground(self, newBackground):
         '''
@@ -28,11 +32,19 @@ class Scene(tk.Frame):
         self.draw()
     
     def draw(self):
-        pass
+        self.background.draw(self)
+        for location, character in self.characters:
+            character.draw(self.scene, self.background[location])
         
         
         
 if __name__ == "__main__":
+    import os
+    
+    from background import Background
+    root = tk.Tk()
+    bg = Background(os.path.join('assets', 'tmpBG1.data.txt'))
+    
     class Application(tk.Frame):
         def __init__(self, master=None):
             super().__init__(master)
@@ -40,7 +52,7 @@ if __name__ == "__main__":
             self.create_widgets()
     
         def create_widgets(self):
-            self.hi_there = Scene(self)
+            self.hi_there = Scene(self, bg, scale=0.5)
             self.hi_there.pack(side="top")
     
             self.quit = tk.Button(self, text="QUIT", fg="red", command=root.destroy)
@@ -49,7 +61,6 @@ if __name__ == "__main__":
         def say_hi(self):
             print("hi there, everyone!")
 
-    root = tk.Tk()
     app = Application(master=root)
     app.mainloop()
 
