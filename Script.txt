@@ -4,19 +4,26 @@
 Names:
 Girl#1 - 
 Girl#2 - 
-Girl#3 - 
+Girl#3/Witch - 
 Girl#4 - 
 Guy/Friend - 
 
 Based on finding the characters wishes
 
+Conflict?: A witch is invading dreams and destroying wishes at the school. The protagonist is not involved in this, but does know about it.
+
+Basic plotline - Protag meets with friend. Then they go to various locations, where they talk to some girls who are going to their party.
+After they talk to each girl individually, they learn each of their witches. Some point at the party, girl#4 reveals herself to be the witch.
+If protag knows all of the wishes of everyone, then the protag and his friends use their hopes and dreams to overpower the witch, defeating here
+and saving the school.
+
 Scene 0: Starts at home, around Halloween, protagonist is greeted by friend from school. 
 Dialogue between friend and protagonist until choice on where to go.
 
-Choice 0:
-	0)	Go to the mall 
-	1)	Go to school
-	2)	Go to pumpkin patch
+Location Choice 0:
+	0) Go to the mall
+	1) Go to school
+	2) Go to pumpkin patch
 	3) Get ready for party
 	4) Write-In
 
@@ -25,7 +32,7 @@ Scene 0-0: Protag and friend head over to the mall, meet girl#1 from school. Dia
 Dialogue options:
 	0)	Talk about the party
 	1)	Talk about school
-	2)	Talk about Halloween
+	2)	Talk about witches
 	3)	Leave and buy party supplies
 	4) Write-In
 	
@@ -86,12 +93,6 @@ Dialogue options:
 	4)
 
 Scene 0-0-0: Find some party supplies at the mall, girl#1 continues talking.
-
-
-
-
-
-
 
 
 
