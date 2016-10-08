@@ -10,7 +10,7 @@ Guy/Friend -
 
 Based on finding the characters wishes
 
-Conflict?: A witch is invading dreams and destroying wishes at the school. The protagonist is not involved in this, but does know about it.
+Conflict: A witch is invading dreams and destroying wishes at the school. The protagonist is not involved in this, but does know about it.
 
 Basic plotline - Protag meets with friend. Then they go to various locations, where they talk to some girls who are going to their party.
 After they talk to each girl individually, they learn each of their wishes. Some point at the party, girl#4 reveals herself to be the witch.
@@ -47,10 +47,10 @@ Location Choice 0-0:
 Scene 0-1: Protag and friend head to school, meet girl#2. Dialogue;
 
 Dialogue options:
-	0)
-	1)
-	2)
-	3)
+	0) Talk about school
+	1) Talk about the party
+	2) Talk about witches
+	3) Ask her if she's heard of the witch
 	4) Write-In
 	
 Location Choice 0-1:
@@ -63,38 +63,112 @@ Location Choice 0-1:
 Scene 0-2: Protag and friend head to the pumpkin patch, meet girl#4 and girl#3. Dialogue;
 
 Dialogue options:
-	0)
-	1)
-	2)
-	3)
-	4)
+	0) Ask to buy some pumpkins
+	1) Ask girl#4 about girl#3
+	2) Talk about the witches at the school
+	3) Ask them if they're going to protag's party tonight
+	4) Write-In
 	
 Location Choice 0-2:
 	0) Go to the mall
 	1) Go to school
 	2) Stay at pumpkin patch
-	3) Get ready for part at home
+	3) Get ready for party at home
 	4) Write-In
 
 Scene 0-3: Protag and friend get the house ready for the party. Guests begin arriving including girl#1, girl#2, girl#3, and girl#4. Girl#2 starts talking with protag.
 
 Dialogue options:
-	0)
-	1)
-	2)
-	3)
-	4)
+	0) Hey, you came!
+	1) Glad to see you here
+	2) Hope you aren't too scared
+	3) Give her a complement
+	4) Write-In
 	
 0-3 Choice:
 	0)
 	1)
 	2)
 	3)
-	4)
-
-Scene 0-0-0: Find some party supplies at the mall, girl#1 leaves. The 
+	4) Write-In
 
 
+
+Scene 0-0-0: Girl#1 is very excited about the party. She even decided to wear her costume all day. After dialogue, she leaves,
+and protag asks friend where they should go next. 
+
+
+Scene 0-0-1: Girl#1 says she isn't doing well in class, so she doesn't really like talking about school. Protag says something to cheer her up,
+afterwards she leaves. Friend asks Protag where to go next.
+
+
+Scene 0-0-2: Girl#1 says her friends are scared of the witches, but she isn't worried. She mentions that witches can't stop
+her wish. Protag asks her what her wish is. She says that it is [To always have a good time, regardless of what happens]. **Wish #1 Gained**
+After this, she leaves and friend asks protag where to go next.
+
+
+Scene 0-0-3: Find some party supplies at the mall, girl#1 leaves. Friend talks to protag about the party, generic dialogue.
+After they get supplies, they decide to go somewhere else.
+
+Dialogue options:
+	0) Talk about girl#1
+	1) Ask him who else he invited
+	2) Talk about witches
+	3) Ask friend what his wish is
+	4) Write-In
+
+Scene 0-0-3-0: Friend says that he likes girl#1, and he's really glad she's coming to the party.
+
+Scene 0-0-3-1: Friend stutters and says that he really didn't invite that many people, just girl#1 and some of her friends.
+
+Scene 0-0-3-2: Friend says that he doesn't like to think about it much. Not surprising, it is depressing to think of
+people's hopes and dreams being crushed.
+
+Scene 0-0-3-3: Friend mentions that he only wishes that [Justice is preserved], anything more than that isn't 
+necessary. **Wish #4 Gained**
+
+
+
+Scene 0-1-0: Girl#2 mentions that school is going well, her classes don't seem to be much trouble. Conversation continues for a bit,
+until Girl#2 says she needs to go study.
+
+
+Scene 0-1-1: Girl#2 says she is excited, but she has to finish her studies before she can worry about it. After some persuasion,
+protag and friend convince her to come even if she doesn't finish before it starts. Protag and friend then leave to continue getting the 
+party ready.
+
+
+Scene 0-1-2: Girl#2 says she is concerned and a little scared that it's happened to so many people already. She also mentions her superstitions
+that worry her even more since it's Halloween. Protag tells her not to worry too much, and tries to reassure her that everyone will be alright.
+Girl#2 then tell Protag that she only wishes for [Everyone to be alright]. Protag says that her wish will be realized, and then girl#2 leaves 
+to finish her studies. **Wish #2 Gained**
+
+
+Scene 0-1-3: Girl#2 says she is concerned and a little scared that it's happened to so many people already. She also mentions her superstitions
+that worry her even more since it's Halloween. Protag tells her not to worry too much, and tries to reassure her that everyone will be alright.
+Girl#2 then tell Protag that she only wishes for [Everyone to be alright]. Protag says that her wish will be realized, and then girl#2 leaves 
+to finish her studies. **Wish #2 Gained**
+
+
+
+Scene 0-2-0: Girl#4 jokingly says that the pumpkins will cost them their souls. Protag and Friend laugh and then ask how much they really would be.
+Girl#4 tells girl#3 to go grab some pumpkins and that they would be $8 each. Protag asks friend how much money that he has. Friend says that he
+forgot to bring any cash. Girl#4 says that it was alright if they took them and payed her back later. Protag and friend then take 2 pumpkins. 
+Afterewards, they leave.
+
+
+Scene 0-2-1: Girl#4 says that girl#3 is a young teenager who offered to help her with the pumpkins. Girl#3 says that Halloween is her favorite holiday,
+and she likes doing anything to help poeple get in the spirit of the holiday. Protag then ask girl#3 if she's worried about the witch
+at all. Girl#3 then says she hasn't heard about the witch, but she likes witches. Friend then tells protag that he has 2 pumpkins and they leave.
+
+
+Scene 0-2-2: Girl#4 says that witches don't exist in the real world, and that they're stupid for believing such a silly thing. Girl#3 says that she
+hasn't heard a thing about it. After explaining it to her, she says that the witch seems really cool, but she hopes that the witch doesn't take her
+wish for [A happy Halloween]. After getting some pumpkins, friend and protag then leave. **Wish #3 Gained**
+
+
+Scene 0-2-3: Girl#4 and Girl#3 both say that they were invited to a party tonight already, so they can't go to protag's. Protag and friend then get
+some pumpkins and leave.
 
 
 
