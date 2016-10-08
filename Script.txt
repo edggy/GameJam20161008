@@ -4,8 +4,8 @@
 Names:
 Girl#1 - 
 Girl#2 - 
-Girl#3/Witch - 
-Girl#4 - 
+Girl#3 - 
+Girl#4/Witch - 
 Guy/Friend - 
 
 Based on finding the characters wishes
@@ -13,7 +13,7 @@ Based on finding the characters wishes
 Conflict?: A witch is invading dreams and destroying wishes at the school. The protagonist is not involved in this, but does know about it.
 
 Basic plotline - Protag meets with friend. Then they go to various locations, where they talk to some girls who are going to their party.
-After they talk to each girl individually, they learn each of their witches. Some point at the party, girl#4 reveals herself to be the witch.
+After they talk to each girl individually, they learn each of their wishes. Some point at the party, girl#4 reveals herself to be the witch.
 If protag knows all of the wishes of everyone, then the protag and his friends use their hopes and dreams to overpower the witch, defeating here
 and saving the school.
 
@@ -37,7 +37,7 @@ Dialogue options:
 	4) Write-In
 	
 After this dialogue, choice on where to go next from here
-0-0 Choice:
+Location Choice 0-0:
 	0) Stay at the mall
 	1) Go to school
 	2) Go to pumpkin patch
@@ -53,14 +53,14 @@ Dialogue options:
 	3)
 	4) Write-In
 	
-0-1 Choice:
+Location Choice 0-1:
 	0) Go to the mall
 	1) Stay at school
 	2) Go to pumpkin patch
 	3) Get ready for party at home
 	4) Write-In
 	
-Scene 0-2: Protag and friend head to the pumpkin patch, meet girl#3. Dialogue;
+Scene 0-2: Protag and friend head to the pumpkin patch, meet girl#4 and girl#3. Dialogue;
 
 Dialogue options:
 	0)
@@ -69,7 +69,7 @@ Dialogue options:
 	3)
 	4)
 	
-0-2 Choice:
+Location Choice 0-2:
 	0) Go to the mall
 	1) Go to school
 	2) Stay at pumpkin patch
@@ -92,7 +92,8 @@ Dialogue options:
 	3)
 	4)
 
-Scene 0-0-0: Find some party supplies at the mall, girl#1 continues talking.
+Scene 0-0-0: Find some party supplies at the mall, girl#1 leaves. The 
+
 
 
 
