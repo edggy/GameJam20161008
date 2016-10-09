@@ -14,7 +14,7 @@ class Scene(tk.Frame):
         self.scene.pack(fill=tk.BOTH, expand=tk.YES)
         self.background = initBackground
         self.scene.pack(side=tk.TOP)
-        self.characters = []
+        self.characters = [None] * len(self.background)
         self.draw()
     
     def changeBackground(self, newBackground):
@@ -22,7 +22,7 @@ class Scene(tk.Frame):
         Takes a background image and replaces the current background
         '''
         self.background = newBackground
-        self.characters = []
+        self.characters = [None] * len(self.background)
     
     def changeCharacter(self, newCharacter = None, location = 0):
         '''
@@ -33,9 +33,9 @@ class Scene(tk.Frame):
     
     def draw(self):
         self.background.draw(self)
-        for location, character in self.characters:
+        for location, character in enumerate(self.characters):
             if character is not None:
-                character.draw(self.scene, self.background[location])
+                character.draw(self, self.background[location])
         
         
         
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     from character import Character
     
     root = tk.Tk()
-    bg = Background(os.path.join('assets', 'tmpBG1.data.txt'))
+    bg = Background(os.path.join('assets', 'Pumpkin patch-night.data.txt'))
     char = Character(os.path.join('assets', 'tmpC1.data.txt'))
     
     class Application(tk.Frame):
@@ -57,6 +57,7 @@ if __name__ == "__main__":
     
         def create_widgets(self):
             self.hi_there = Scene(self, bg, scale=0.5)
+            self.hi_there.changeCharacter(char, 1)
             self.hi_there.pack(side="top")
     
             self.quit = tk.Button(self, text="QUIT", fg="red", command=root.destroy)

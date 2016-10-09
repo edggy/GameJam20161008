@@ -15,13 +15,17 @@ class Character:
     def __init__(self, filename):
         cwd = os.path.dirname(filename)
         with open(filename, 'r') as f:
-            self.imgName = os.path.join(cwd, f.readline().strip())     
+            self.imgName = os.path.join(cwd, f.readline().strip()) 
         self.img = Image.open(self.imgName)
+        ratio = 540 / self.img.size[1]
+        newSize = int(self.img.size[0] * ratio), int(self.img.size[1] * ratio)
+        self.img = self.img.resize(newSize, Image.LANCZOS)
         
-    def draw(self, scene):
-        newSize = self.img.size[0] * scene.scale, self.img.size[1] * scene.scale
-        self.imgTk = ImageTk.PhotoImage(self.img.resize(newSize), size = newSize)
-        scene.scene.create_image((0,0), image=self.imgTk, anchor=tk.CENTER)   
+        
+    def draw(self, scene, location):
+        newSize = int(self.img.size[0] * scene.scale), int(self.img.size[1] * scene.scale)
+        self.imgTk = ImageTk.PhotoImage(self.img.resize(newSize, Image.LANCZOS), size = newSize)
+        scene.scene.create_image(tuple(map(lambda x: x * scene.scale, location)), image=self.imgTk, anchor=tk.CENTER)   
         
 
 if __name__ == "__main__":

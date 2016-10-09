@@ -19,12 +19,13 @@ class Screen(tk.Frame):
         for button in self.optionButtons:
             button.lower()
             
-        self.nextButton = tk.Button(self, text='Continue', command=self.continueGame)
+        self.nextButton = tk.Button(self, text='Continue'.center(300, ' '), command=self.continueGame)
         #self.textBox = 
         
         self.currentScene.pack(side = 'top')
         for button in self.optionButtons:
             button.pack(side = 'top')
+        self.nextButton.pack(side = 'top')
         
         
     def changeButtons(self, optionsList):

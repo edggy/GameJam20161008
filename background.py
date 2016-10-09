@@ -33,6 +33,9 @@ class Background():
     def __getitem__(self, index):
         return self.locs[index]
     
+    def __len__(self):
+        return len(self.locs)
+    
     def draw(self, scene):
         #newSize = scene.scene.winfo_reqwidth(), scene.scene.winfo_reqheight()
         newSize = int(self.img.size[0] * scene.scale), int(self.img.size[1] * scene.scale)
