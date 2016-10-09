@@ -17,19 +17,22 @@ class Scene(tk.Frame):
         self.characters = [None] * len(self.background)
         self.draw()
     
-    def changeBackground(self, newBackground):
+    def changeBackground(self, newBackground, draw = True):
         '''
         Takes a background image and replaces the current background
         '''
         self.background = newBackground
         self.characters = [None] * len(self.background)
+        if draw: 
+            self.draw()
     
-    def changeCharacter(self, newCharacter = None, location = 0):
+    def changeCharacter(self, newCharacter = None, location = 0, draw = True):
         '''
         Takes a person and puts them in the scene at the specified location
         '''
         self.characters[location] = newCharacter
-        self.draw()
+        if draw:
+            self.draw()
     
     def draw(self):
         self.background.draw(self)
@@ -59,12 +62,24 @@ if __name__ == "__main__":
             self.hi_there = Scene(self, bg, scale=0.5)
             self.hi_there.changeCharacter(char, 1)
             self.hi_there.pack(side="top")
-    
+            
+            self.hidden = False
+            self.hide = tk.Button(self, text="HIDE", fg="red", command=self.hide)
+            self.hide.pack(side="bottom")            
+            
             self.quit = tk.Button(self, text="QUIT", fg="red", command=root.destroy)
             self.quit.pack(side="bottom")
     
-        def say_hi(self):
-            print("hi there, everyone!")
+        def hide(self):
+            if not self.hidden:
+                self.hidden = True
+                self.hi_there.changeCharacter(None, 1)
+            else:
+                self.hidden = False
+                self.hi_there.changeCharacter(char, 1)
+                
+            
+        
 
     app = Application(master=root)
     app.mainloop()
