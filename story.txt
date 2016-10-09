@@ -1,0 +1,43 @@
+assign character tmpGuy assets/tmpC1.data.txt
+assign background tmpBack assets/tmpBG1.data.txt
+assign background startScreen assets/tmpBG1.data.txt
+
+scene 0
+load background startScreen
+options 4
+True	True	Start Game	1
+True	True	Start Game	1
+True	True	Start Game	1
+True	True	Quit Game	1
+
+scene 1
+load background tmpBack
+load character tmpGuy 0
+
+say tmpGuy Hello!
+say tmpGuy I need to go
+say tmpGuy Cya
+
+load character None 0
+
+sub star
+
+load character tmpGuy 0
+say tmpGuy Oh sorry
+say tmpGuy What was your name again?
+
+add star
+
+#<condition for grey>	<condition for selection>	<option>	<scene>
+options 4
+hat>2 and star>5	beard>1		Say your name		1-0		# Gets Soup, removes beard
+True				hat>1		Call for help		1-1
+True				True		Run Away!			1-1
+True				True		Say Again			0
+
+scene 1-0
+add soup
+sub beard
+...
+...
+

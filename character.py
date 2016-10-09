@@ -1,3 +1,8 @@
+import os
+from PIL import Image
+from PIL import ImageTk
+import tkinter as tk
+
 '''
 A Character is a character in the game
 Has a image associated with them
@@ -6,13 +11,11 @@ Character file format:
 <img location>
 '''
 
-import tkinter as tk
-
 class Character:
     def __init__(self, filename):
         cwd = os.path.dirname(filename)
         with open(filename, 'r') as f:
-            self.imgName = os.path.join(cwd, f.readline()[:-1])     
+            self.imgName = os.path.join(cwd, f.readline().strip())     
         self.img = Image.open(self.imgName)
         
     def draw(self, scene):

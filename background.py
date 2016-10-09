@@ -1,6 +1,7 @@
 import os
 from PIL import Image
 from PIL import ImageTk
+import tkinter as tk
 
 '''
 Background class hold the image of the background and the data such as character locations
@@ -14,20 +15,20 @@ Background file format:
 <pos n x> <pos n y>
 '''
 
-import tkinter as tk
+
 
 class Background():
     def __init__(self, filename):
         cwd = os.path.dirname(filename)
         with open(filename, 'r') as f:
-            self.imgName = os.path.join(cwd, f.readline()[:-1])
+            self.imgName = os.path.join(cwd, f.readline().strip())
             self.numLocs = int(f.readline())
             self.locs = []
             for i in range(self.numLocs):
                 x, y = f.readline().split()
                 self.locs.append((int(x), int(y)))
         self.img = Image.open(self.imgName)
-        self.imgTk = ImageTk.PhotoImage(self.img)
+        #self.imgTk = ImageTk.PhotoImage(self.img)
                 
     def __getitem__(self, index):
         return self.locs[index]

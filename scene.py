@@ -34,7 +34,8 @@ class Scene(tk.Frame):
     def draw(self):
         self.background.draw(self)
         for location, character in self.characters:
-            character.draw(self.scene, self.background[location])
+            if character is not None:
+                character.draw(self.scene, self.background[location])
         
         
         
@@ -42,8 +43,11 @@ if __name__ == "__main__":
     import os
     
     from background import Background
+    from character import Character
+    
     root = tk.Tk()
     bg = Background(os.path.join('assets', 'tmpBG1.data.txt'))
+    char = Character(os.path.join('assets', 'tmpC1.data.txt'))
     
     class Application(tk.Frame):
         def __init__(self, master=None):

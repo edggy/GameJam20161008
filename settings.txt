@@ -1,0 +1,2 @@
+storyFile	story.txt
+dataFile	data.dat
