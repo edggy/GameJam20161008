@@ -120,32 +120,38 @@ class State:
             
         
     def save(self, heightScale = 20):
-        with open(self.dataFile, 'r+') as f:
-            size = f.readline()
-            width = len(size) + 1
-            size = int(size)
-            
-            if size < len(self.data) * heightScale / 2:
-                self.makeFirstSave(heightScale)
-            else:
-                for key in self.data:
-                    rowNum = (hashString(key) % (size - 1)) + 1
-                    f.seek(rowNum * width, os.SEEK_SET)
-                    data = '%s\t%s' % (key, self.data[key])
-                    f.write(data.ljust(width - len(os.linesep)) + '\n')
+        try:
+            with open(self.dataFile, 'r+') as f:
+                size = f.readline()
+                width = len(size) + 1
+                size = int(size)
+                
+                if size < len(self.data) * heightScale / 2:
+                    self.makeFirstSave(heightScale)
+                else:
+                    for key in self.data:
+                        rowNum = (hashString(key) % (size - 1)) + 1
+                        f.seek(rowNum * width, os.SEEK_SET)
+                        data = '%s\t%s' % (key, self.data[key])
+                        f.write(data.ljust(width - len(os.linesep)) + '\n')
+        except FileNotFoundError:
+            self.makeFirstSave(heightScale)
                 
     def load(self):
-        with open(self.dataFile, 'r') as f:
-            newData = {}
-            size = int(f.readline())
-            for i in range(size):
-                line = f.readline()
-                if line.strip() == '':
-                    continue
-                key, val = line.split('\t', 1)
-                newData[key] = int(val)
-                
-            self.data = newData
+        try:
+            with open(self.dataFile, 'r') as f:
+                newData = {}
+                size = int(f.readline())
+                for i in range(size):
+                    line = f.readline()
+                    if line.strip() == '':
+                        continue
+                    key, val = line.split('\t', 1)
+                    newData[key] = int(val)
+                    
+                self.data = newData
+        except FileNotFoundError:
+            self.makeFirstSave()
 
 def hashString(s):
     return int(hashlib.md5(s.encode()).hexdigest(), 16)
