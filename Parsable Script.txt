@@ -1,7 +1,7 @@
-assign character girl1 assets/char1.data
-assign character girl2 assets/char2.data
-assign character girl3 assets/char3.data
-assign character guy assets/char4.data
+assign character girl1 assets/2.data
+assign character girl2 assets/1.data
+assign character girl3 assets/4.data
+assign character guy assets/3.data
 assign character witch assets/char5.data
 
 assign background mallDay assets/mall-day.data
@@ -23,7 +23,7 @@ True 	 True	 Start Game	0
 True	 True  Start Game	0
 True	 True	 Quit Game	start
 
-#Scene on game start, guy and protag the only characters
+#Scene on game start, guy and Steve the only characters
 scene 0
 
 res mallCounter
@@ -50,10 +50,10 @@ sub stickers
 load background houseDay
 load character guy 0
 
-say guy Protag, wake up!
-say Protag Huh? guy, what are you doing in my house?
+say guy Steve, wake up!
+say Steve Huh? guy, what are you doing in my house?
 say guy Making you wake up so we can get the party ready you dingus.
-say Protag Oh yeah, party tonight. Well, we should get ready.
+say Steve Oh yeah, party tonight. Well, we should get ready.
 say guy Yeah. It's your party, so where should we go first?
 goto 1
 
@@ -67,7 +67,7 @@ True	True					House				1-3
 
 #For mall choice
 scene 1-0
-say Protag We should go to the mall, we need to get supplies for later.
+say Steve We should go to the mall, we need to get supplies for later.
 say guy Good idea, we could get pretty much anything at the mall.
 say guy Let's get going.
 add mallCounter
@@ -76,7 +76,7 @@ goto 0-0
 
 #For school choice
 scene 1-1
-say Protag We should go to the school, I bet there are people we still haven't told about the party.
+say Steve We should go to the school, I bet there are people we still haven't told about the party.
 say guy That's not a bad idea. What's a party without people?
 say guy Let's get going.
 add school
@@ -85,7 +85,7 @@ goto 0-1
 
 #For pumpkin patch choice
 scene 1-2
-say Protag We should go to the pumpkin patch. It's a Halloween party and we need some good decorations.
+say Steve We should go to the pumpkin patch. It's a Halloween party and we need some good decorations.
 say guy Yeah, I suppose we should get into the spirit of things.
 say guy Let's get going.
 load character None 0
@@ -93,7 +93,7 @@ goto 0-2
 
 #For home choice
 scene 1-3
-say Protag I think we're ready for the party already. We just need to set up a few things.
+say Steve I think we're ready for the party already. We just need to set up a few things.
 say guy Alright, if you say you're ready, then we probably are.
 say guy This party is going to be amazing.
 load character None 0
@@ -102,17 +102,17 @@ goto 0-3
 scene 0-0
 load background mallDay
 
-say Protag Wow, the mall is full of people today.
-say ???? Hey, Protag!
-say Protag Huh?
+say Steve Wow, the mall is full of people today.
+say ???? Hey, Steve!
+say Steve Huh?
 
 load character girl1 0
-say Protag Oh, girl1, I didn't expect to see you here.
+say Steve Oh, girl1, I didn't expect to see you here.
 say girl1 I always hang out here silly. Do you like my costume?
 load character guy 1
 say guy Your costume is awesome.
 say girl1 Hi guy, I didn't know you were here too.
-say guy Yeah, I'm helping Protag set up the party tonight.
+say guy Yeah, I'm helping Steve set up the party tonight.
 say girl1 Ooh, the party is going to be so amazing.
 
 options 4
@@ -122,29 +122,29 @@ True			True			Leave and buy supplies	0-0-2
 numDays>0	numDays>0	Talk about witches 		0-0-3
 
 scene 0-0-0
-say Protag Are you ready for the party tonight?
+say Steve Are you ready for the party tonight?
 say girl1 Of course I am! I'm even wearing my costume all day long for it.
 say guy Wow, you must be very excited to wear that all day long.
 say girl1 What, do you not like this?
 say guy No, it's looks great. I'm just worried that you're having too much fun without us.
 say girl1 Good save.
-say Protag Anyway, we need to finish getting my house ready for the party. See you later!
+say Steve Anyway, we need to finish getting my house ready for the party. See you later!
 say girl1 See you guys
 load character None 0
 say guy So we have everything we need from here, now where should we go?
 goto 1
 
 scene 0-0-1
-say Protag How is school going for you?
+say Steve How is school going for you?
 say girl1 I don't really like talking about it much. School is always hard for me.
 
 goto 1
 
 scene 0-0-2
-say Protag Sorry, no time to chat. We need to get the party ready.
+say Steve Sorry, no time to chat. We need to get the party ready.
 say girl1 Okay, see you later.
 load character None 0
-say guy What's up Protag?
+say guy What's up Steve?
 
 options 4
 True			True			Talk about	girl1					0-0-2-0
@@ -160,11 +160,11 @@ goto 1
 
 scene 0-0-2-2
 add wish4
-say Protag I've been thinking about the future lately. What is your wish for the future?
+say Steve I've been thinking about the future lately. What is your wish for the future?
 say guy To be honest, I've really only ever needed my friends and my family, so I guess my wish would be to always have them.
-say Protag Ha, gaaaaaay.
+say Steve Ha, gaaaaaay.
 say guy Oh yeah? Like you have anything more worthwhile than the people who care about you.
-say Protag I know, I was just expecting something a bit different is all.
+say Steve I know, I was just expecting something a bit different is all.
 say guy Anyway, we have everything we need now, where should we go next?
 goto 1
 
@@ -173,14 +173,14 @@ goto 1
 
 scene 0-0-3
 add wish1
-say Protag What do you think about witches? It is Halloween and all.
+say Steve What do you think about witches? It is Halloween and all.
 say girl1 My friends say that they used to be scared of witches, since they kill dreams.
 say girl1 But I'm not scared of any witches, because they can't stop my wishes no matter what.
-say Protag What is your wish?
+say Steve What is your wish?
 say girl1 This may sound a bit selfish, but I've always believed if you're having fun, everything is okay.
 say girl1 So my wish is to always have a good time, regarless of what happens.
 say guy That seems like a good thing to believe in.
-say Protag I agree. Anyway, we need to finish getting the party ready. See you later.
+say Steve I agree. Anyway, we need to finish getting the party ready. See you later.
 say girl1 See you!
 load character None 0
 say guy So where do you want to go next?
@@ -188,10 +188,10 @@ goto 1
 
 scene 0-1
 load background schoolDay
-say Protag I wonder who is still here on Halloween...
+say Steve I wonder who is still here on Halloween...
 load character girl2 0
-say girl2 Hi Protag.
-say Protag (Yeah, this makes sense) Hey, what's up?
+say girl2 Hi Steve.
+say Steve (Yeah, this makes sense) Hey, what's up?
 say girl2 School work mostly. I have some studying I need to catch up on.
 
 options 4
@@ -201,22 +201,30 @@ numDays>0	portrait>1	Talk about witches							0-1-2
 numDays>0	portrait>1	Ask her if she's seen/heard of a witch	0-1-3
 
 scene 0-1-0
-say Protag How is school going for you?
-say girl1 Well, 
+say Steve How is school going for you?
+say girl2 Fine. My classes aren't very hard, but I still need to study.
+load character guy 1
+say guy Well, I guess even smarties need to study sometimes.
+say Steve School is important, so I'll leave you to go study.
+say girl2 I really have to go, see you later.
+say Steve Bye.
+say guy Bye.
+load character None 0
+say guy What should we do next?
 goto 1
 
 scene 0-1-1
 add cookies
-say Protag Are you coming to the party tonight?
+say Steve Are you coming to the party tonight?
 say girl2 I'm not sure, I have some studying to do still.
 load character guy 1
 say guy School shouldn't stop you from enjoying yourself sometimes.
 say girl2 I know, but I have to put school first. It's important to me.
-say Protag Well, there can't possibly be that much studying on Halloween. Why don't you come anyway?
+say Steve Well, there can't possibly be that much studying on Halloween. Why don't you come anyway?
 say girl2 Even if I didn't finish before the party, I could probably still get it done after.
 say guy That's the spirit! I hope to see you later then.
-say girl2 Wait, Protag! Thanks for being so nice to me, take these cookies.
-say Protag Wow, thanks a lot. See you at the party!
+say girl2 Wait, Steve! Thanks for being so nice to me, take these cookies.
+say Steve Wow, thanks a lot. See you at the party!
 say girl2 Goodbye.
 load character None 0
 say guy Well, where should we go next.
@@ -224,39 +232,40 @@ goto 1
 
 scene 0-1-2
 add wish2
-say Protag Hey, what do you think of witches. It is Halloween.
+say Steve Hey, what do you think of witches. It is Halloween.
 say girl2 I used to be really scared of witches when I was a little girl.
-say Protag That's understandable. Stealing people's wishes is kind of scary.
+say Steve That's understandable. Stealing people's wishes is kind of scary.
 say girl2 Even though I konw they don't exist, I think if I saw one in real life I would be terrified.
 load character guy 1
 say guy I heard once that if someone tells their wish to another person, then the witch can't steal the wish anymore.
 say girl2 Really...
 say girl2 Well, this may be a bit silly, but my wish is for everyone to be okay no matter what.
-say Protag That's a really nice wish, girl2.
+say Steve That's a really nice wish, girl2.
 say girl2 Thanks. Anyway, I need to study, see you later.
-say Protag Later.
+say Steve Later.
 load character None 0
 say guy So where should we go next?
 goto 1
 
 scene 0-1-3
 add wish2
-say Protag Have you ever seen or heard of a witch?
+say Steve Have you ever seen or heard of a witch?
 say girl2 That's a bit of an odd question, but no.
-say girl2 But even though I konw they don't exist, I think if I saw one in real life I would be terrified.
+say girl2 But even though I know they don't exist, I think if I saw one in real life I would be terrified.
 load character guy 1
 say guy I heard once that if someone tells their wish to another person, then the witch can't steal the wish anymore.
 say girl2 Really...
 say girl2 Well, this may be a bit silly, but my wish is for everyone to be okay no matter what.
-say Protag That's a really nice wish, girl2.
+say Steve That's a really nice wish, girl2.
 say girl2 Thanks. Anyway, I need to study, see you later.
-say Protag Later.
+say Steve Later.
 load character None 0
 say guy So where should we go next?
 goto 1
 
 scene 0-2
 load background pumpkinDay
+load character witch 0
 say witch Hello, and welcome to my pumpkin patch!
 
 options 4
@@ -307,22 +316,58 @@ say witch I'm cutting you off, you can't possibly handle more than 7 pumpkins.
 
 scene 0-2-1
 add stickers
+say witch I don't actually know girl3 very well, she just offered to work for me.
+say Steve Oh really?
+load character girl3 1
+say girl3 Yeah, because Halloween is my favorite holiday! I'll do anything to help people get in the spirit of Halloween.
+load character None 0
+say Steve What do you like most about it?
+say girl3 I like dressing up and pretending to be someone or something I'm not.
+say girl3 Sometimes, I don't to be myself, and dressing up is a good way to do that. 
+say Steve Well, I really hope you get to enjoy today.
+say girl3 Thanks! Here, take these stickers. Use them to decorate your house for today.
+say Steve Wow, that means a lot coming from you.
+load character guy 0
+say guy Hey, we really need to get going Steve.
+say Steve Bye girl3
+say girl3 Bye
+load character None 1
+say guy So where should we go next?
 goto 1
 
 scene 0-2-2
+say witch Sorry, but we're already going to a party tonight.
+say Steve Dang, that's too bad.
+load character guy 1
+say guy Hey Steve, we're wasting time we don't really have. We need to go.
+say Steve Alright then, bye.
+say witch Bye, and have a wonderfully wicked weekend.
+load character None 0
+say guy Alright, where should we go next?
 goto 1
 
 scene 0-2-3
 add wish3
+say Steve So what do you think of Halloween and witches?
+load character girl3 1
+say girl3 I love Halloween! It's my favorite day of the year. As for witches, I don't think they're that bad.
+say Steve Really? But don't you know that they wreak havoc on hopes and dreams?
+say girl3 Well, my wish is only for a happy Halloween, so I think any witches will let my dream come true.
+say witch Witches aren't even real, so you don't need to worry at all.
+say Steve Yeah, but if they did, they would definitely come out on Halloween.
+load character guy 1
+say guy Either way, I think it's about time we left. Goodbye.
+say Steve Bye.
+say witch Have a delightfully devilish day.
 goto 1
 
 
 scene 0-3
 load background houseNight
 load character girl2 0
-say Protag Hey, you came!
+say Steve Hey, you came!
 say girl2 Yeah, I finished most of it, so I thought it would be alright if I went out.
-say Protag I'm just glad you're here at all.
+say Steve I'm just glad you're here at all.
 
 options 4
 True			True			Talk to girl1									0-3-0
@@ -331,37 +376,97 @@ True			True			Talk to witch									0-3-2
 cookies>0	cookies>0	I really like the cookies you gave me	0-3-3
 
 scene 0-3-0
+say Steve Hey girl1, what's up.
+load character girl1 0
+load character guy 1
+say girl1 Hi Steve, I've just been talking with guy.
+say guy Hey, Steve.
+say Steve So how do you like the party?
+say girl1 I like it, it's very well decorated.
+say Steve Thanks, we really wor-
+load character witch 1
+say witch HEHEHEHEHEHEHEHEHE, FOOLS! I am a witch and you are all going to be trapped here in time forever!
+say Steve WHAT?!
+
 options 2
 True													True														Try and stop the witch	0-3-0-0
 wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-0-1
 
 scene 0-3-1
+say Steve Hey girl3, what's up.
+load character girl3 0
+say girl3 Hi Steve, these decorations are amazing.
+say Steve So how do you like the party?
+say girl3 I like it, it's very spirited.
+say Steve Thanks, we really wor-
+load character witch 1
+say witch HEHEHEHEHEHEHEHEHE, FOOLS! I am a witch and you are all going to be trapped here in time forever!
+say Steve WHAT?!
 True													True														Try and stop the witch	0-3-1-0
 wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-1-1
 
 scene 0-3-2
+load character witch 0
+say Steve Hey witch, I didn't expect to see you here.
+say witch Oh, so this is your party we were invited to.
+say Steve So how do you like the party?
+say witch It's nice, but a bit over the top don't you think.
+say Steve No, it's nice to have a Halloween party look so decorated.
+say witch You know what? I'm starting to think you don't have any idea what your place in this world is.
+say Steve I'm sorry, I don't quite understand.
+say witch YOU FOOL! I am a witch and you are going to be trapped here in time forever!
+say Steve WHAT?!
 True													True														Try and stop the witch	0-3-2-0
 wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-2-1
 
 scene 0-3-3
 add portrait
+say Steve I really liked the cookies you gave me earlier.
+say girl2 Really? That makes me so relieved. I was worried I didn't make them right.
+say Steve So how do you like the party?
+say girl2 It's nice, but I have another gift I made for you in art class.
+say Steve Wow, this portrait is really good. Thank you so m-.
+load character witch 1
+say witch HEHEHEHEHEHEHEHEHE, FOOLS! I am a witch and you are all going to be trapped here in time forever!
+say Steve WHAT?!
 True													True														Try and stop the witch	0-3-3-0
 wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-3-1
 
 scene 0-3-0-0
 add numDays
+say Steve (You tried, but even with all your might you couldn't stop her. If only there was a way...)
+goto 0
 
 scene 0-3-1-0
 add numDays
+say Steve (You tried, but even with all your might you couldn't stop her. If only there was a way...)
+goto 0
 
 scene 0-3-2-0
 add numDays
+say Steve (You tried, but even with all your might you couldn't stop her. If only there was a way...)
+goto 0
 
 scene 0-3-3-0
 add numDays
-
+say Steve (You tried, but even with all your might you couldn't stop her. If only there was a way...)
+goto 0
 
 scene 0-3-0-1
+say Steve No! We will not have our hopes and dreams reduced to ashes now!
+say Steve We have tried our hardest, we have looked to others for guidance, we have wishes for everyone to come out of this alright.
+say Steve We can't fail here, not as long as we have a wish for a happy future. No matter what, we will win.
+load character guy 0
+say guy For my friends and family...
+load character girl1 0
+say girl1 To always be happy...
+load character girl2 0
+say girl2 For everyone to be okay...
+load character girl3 0
+say girl3 And have a happy holiday...
+load character None 0
+say Steve You can't defeat us as long as we support each other!
+say witch No! NO! NOOOO! THEIR WISHES ARE STOPPING ME.
 
 scene 0-3-1-1
 
