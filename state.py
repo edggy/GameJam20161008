@@ -1,6 +1,8 @@
 import re
 import os
 
+import hashlib
+
 from story import Story
 
 '''
@@ -31,6 +33,8 @@ class State:
         
         self.curScene = self.story[self.story.startScene]
         self.curSceneName = self.story.startScene
+        
+        self.load()
         
     def action(self, actionNumber = None):
         if actionNumber is not None:
@@ -108,9 +112,9 @@ class State:
         
         with open(self.dataFile, 'w') as f:
             size = len(self.data) * heightScale
-            f.write(str(size).ljust(width - len(os.linesep)) + os.linesep)
+            f.write(str(size).ljust(width - len(os.linesep)) + '\n')
             for i in range(size):
-                f.write(''.ljust(width - len(os.linesep)) + os.linesep)
+                f.write(''.ljust(width - len(os.linesep)) + '\n')
             f.flush()
         self.save()
             
@@ -118,17 +122,17 @@ class State:
     def save(self, heightScale = 20):
         with open(self.dataFile, 'r+') as f:
             size = f.readline()
-            width = len(size)
+            width = len(size) + 1
             size = int(size)
             
             if size < len(self.data) * heightScale / 2:
                 self.makeFirstSave(heightScale)
             else:
                 for key in self.data:
-                    rowNum = (hash(key) % (size - 1)) + 1
+                    rowNum = (hashString(key) % (size - 1)) + 1
                     f.seek(rowNum * width, os.SEEK_SET)
                     data = '%s\t%s' % (key, self.data[key])
-                    f.write(data.ljust(width - len(os.linesep)) + os.linesep)
+                    f.write(data.ljust(width - len(os.linesep)) + '\n')
                 
     def load(self):
         with open(self.dataFile, 'r') as f:
@@ -139,9 +143,12 @@ class State:
                 if line.strip() == '':
                     continue
                 key, val = line.split('\t', 1)
-                self.data[key] = val
+                newData[key] = int(val)
                 
             self.data = newData
+
+def hashString(s):
+    return int(hashlib.md5(s.encode()).hexdigest(), 16)
 
 if __name__ == '__main__':
     s = State('settings.txt')
@@ -152,5 +159,7 @@ if __name__ == '__main__':
         act = s.action()    
         if act == 'opts':
             print(s.options)
+
+
 
 
