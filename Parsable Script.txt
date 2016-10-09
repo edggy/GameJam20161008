@@ -132,15 +132,19 @@ say Protag Anyway, we need to finish getting my house ready for the party. See y
 say girl1 See you guys
 load character None 0
 say guy So we have everything we need from here, now where should we go?
-goto scene 1
+goto 1
 
 scene 0-0-1
 say Protag How is school going for you?
 say girl1 I don't really like talking about it much. School is always hard for me.
 
-goto scene 1
+goto 1
 
 scene 0-0-2
+say Protag Sorry, no time to chat. We need to get the party ready.
+say girl1 Okay, see you later.
+load character None 0
+say guy What's up Protag?
 
 options 4
 True			True			Talk about	girl1					0-0-2-0
@@ -149,21 +153,38 @@ True			True			Ask him what his wish is		0-0-2-2
 numDays>0	numDays>0	Talk about witches				0-0-2-3
 
 scene 0-0-2-0
-goto scene 1
+goto 1
 
 scene 0-0-2-1
-goto scene 1
+goto 1
 
 scene 0-0-2-2
 add wish4
-goto scene 1
+say Protag I've been thinking about the future lately. What is your wish for the future?
+say guy To be honest, I've really only ever needed my friends and my family, so I guess my wish would be to always have them.
+say Protag Ha, gaaaaaay.
+say guy Oh yeah? Like you have anything more worthwhile than the people who care about you.
+say Protag I know, I was just expecting something a bit different is all.
+say guy Anyway, we have everything we need now, where should we go next?
+goto 1
 
 scene 0-0-2-3
-goto scene 1
+goto 1
 
 scene 0-0-3
 add wish1
-goto scene 1
+say Protag What do you think about witches? It is Halloween and all.
+say girl1 My friends say that they used to be scared of witches, since they kill dreams.
+say girl1 But I'm not scared of any witches, because they can't stop my wishes no matter what.
+say Protag What is your wish?
+say girl1 This may sound a bit selfish, but I've always believed if you're having fun, everything is okay.
+say girl1 So my wish is to always have a good time, regarless of what happens.
+say guy That seems like a good thing to believe in.
+say Protag I agree. Anyway, we need to finish getting the party ready. See you later.
+say girl1 See you!
+load character None 0
+say guy So where do you want to go next?
+goto 1
 
 scene 0-1
 load background schoolDay
@@ -174,23 +195,65 @@ say Protag (Yeah, this makes sense) Hey, what's up?
 say girl2 School work mostly. I have some studying I need to catch up on.
 
 options 4
-True			True								Talk about school								0-1-0
-True			True								Talk about the party							0-1-1
-numDays>0	cookies>1 and portrait>1	Talk about witches							0-1-2
-numDays>0	cookies>1 and portrait>1	Ask her if she's seen/heard of a witch	0-1-3
+True			True			Talk about school								0-1-0
+True			True			Talk about the party							0-1-1
+numDays>0	portrait>1	Talk about witches							0-1-2
+numDays>0	portrait>1	Ask her if she's seen/heard of a witch	0-1-3
 
 scene 0-1-0
 say Protag How is school going for you?
 say girl1 Well, 
+goto 1
 
 scene 0-1-1
 add cookies
+say Protag Are you coming to the party tonight?
+say girl2 I'm not sure, I have some studying to do still.
+load character guy 1
+say guy School shouldn't stop you from enjoying yourself sometimes.
+say girl2 I know, but I have to put school first. It's important to me.
+say Protag Well, there can't possibly be that much studying on Halloween. Why don't you come anyway?
+say girl2 Even if I didn't finish before the party, I could probably still get it done after.
+say guy That's the spirit! I hope to see you later then.
+say girl2 Wait, Protag! Thanks for being so nice to me, take these cookies.
+say Protag Wow, thanks a lot. See you at the party!
+say girl2 Goodbye.
+load character None 0
+say guy Well, where should we go next.
+goto 1
 
 scene 0-1-2
 add wish2
+say Protag Hey, what do you think of witches. It is Halloween.
+say girl2 I used to be really scared of witches when I was a little girl.
+say Protag That's understandable. Stealing people's wishes is kind of scary.
+say girl2 Even though I konw they don't exist, I think if I saw one in real life I would be terrified.
+load character guy 1
+say guy I heard once that if someone tells their wish to another person, then the witch can't steal the wish anymore.
+say girl2 Really...
+say girl2 Well, this may be a bit silly, but my wish is for everyone to be okay no matter what.
+say Protag That's a really nice wish, girl2.
+say girl2 Thanks. Anyway, I need to study, see you later.
+say Protag Later.
+load character None 0
+say guy So where should we go next?
+goto 1
 
 scene 0-1-3
 add wish2
+say Protag Have you ever seen or heard of a witch?
+say girl2 That's a bit of an odd question, but no.
+say girl2 But even though I konw they don't exist, I think if I saw one in real life I would be terrified.
+load character guy 1
+say guy I heard once that if someone tells their wish to another person, then the witch can't steal the wish anymore.
+say girl2 Really...
+say girl2 Well, this may be a bit silly, but my wish is for everyone to be okay no matter what.
+say Protag That's a really nice wish, girl2.
+say girl2 Thanks. Anyway, I need to study, see you later.
+say Protag Later.
+load character None 0
+say guy So where should we go next?
+goto 1
 
 scene 0-2
 load background pumpkinDay
@@ -244,11 +307,14 @@ say witch I'm cutting you off, you can't possibly handle more than 7 pumpkins.
 
 scene 0-2-1
 add stickers
+goto 1
 
 scene 0-2-2
+goto 1
 
 scene 0-2-3
 add wish3
+goto 1
 
 
 scene 0-3
