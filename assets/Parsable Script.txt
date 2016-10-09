@@ -1,0 +1,324 @@
+assign character girl1 assets/char1.data
+assign character girl2 assets/char2.data
+assign character girl3 assets/char3.data
+assign character guy assets/char4.data
+assign character witch assets/char5.data
+
+assign background mallDay assets/mall-day.data
+assign background mallNight assets/mall-night.data
+assign background pumpkinDay assets/pumpkin patch-day.data
+assign background pumpkinNight assets/pumpkin patch-night.data
+assign background schoolDay assets/school-day.data
+assign background schoolNight assets/school-night.data
+assign background houseDay assets/house-day.data
+assign background houseNight assets/house-night.data
+assign background startScreen assets/Start screen.data
+assign background map assets/map.data
+
+scene start
+load background startScreen
+options 4
+True	 True	 Start Game	0
+True 	 True	 Start Game	0
+True	 True  Start Game	0
+True	 True	 Quit Game	start
+
+#Scene on game start, guy and protag the only characters
+scene 0
+
+res mallCounter
+res schoolCounter
+res pumpkinsCounter
+res pumpkins
+add numDays
+sub numDays
+add wish1
+sub wish1
+add wish2
+sub wish2
+add wish3
+sub wish3
+add wish4
+sub wish4
+add cookies
+sub cookies
+add portrait
+sub portrait
+add stickers
+sub stickers
+
+load background houseDay
+load character guy 0
+
+say guy Protag, wake up!
+say Protag Huh? guy, what are you doing in my house?
+say guy Making you wake up so we can get the party ready you dingus.
+say Protag Oh yeah, party tonight. Well, we should get ready.
+say guy Yeah. It's your party, so where should we go first?
+goto 1
+
+scene 1
+load background map
+options 5
+True	mallCounter<1		Mall				1-0
+True 	schoolCounter<1	School			1-1
+True	pumpkinsCounter<1	pumpkin Patch	1-2
+True	True					House				1-3
+
+#For mall choice
+scene 1-0
+say Protag We should go to the mall, we need to get supplies for later.
+say guy Good idea, we could get pretty much anything at the mall.
+say guy Let's get going.
+add mallCounter
+load character None 0
+goto 0-0
+
+#For school choice
+scene 1-1
+say Protag We should go to the school, I bet there are people we still haven't told about the party.
+say guy That's not a bad idea. What's a party without people?
+say guy Let's get going.
+add school
+load character None 0
+goto 0-1
+
+#For pumpkin patch choice
+scene 1-2
+say Protag We should go to the pumpkin patch. It's a Halloween party and we need some good decorations.
+say guy Yeah, I suppose we should get into the spirit of things.
+say guy Let's get going.
+load character None 0
+goto 0-2
+
+#For home choice
+scene 1-3
+say Protag I think we're ready for the party already. We just need to set up a few things.
+say guy Alright, if you say you're ready, then we probably are.
+say guy This party is going to be amazing.
+load character None 0
+goto 0-3
+
+scene 0-0
+load background mallDay
+
+say Protag Wow, the mall is full of people today.
+say ???? Hey, Protag!
+say Protag Huh?
+
+load character girl1 0
+say Protag Oh, girl1, I didn't expect to see you here.
+say girl1 I always hang out here silly. Do you like my costume?
+load character guy 1
+say guy Your costume is awesome.
+say girl1 Hi guy, I didn't know you were here too.
+say guy Yeah, I'm helping Protag set up the party tonight.
+say girl1 Ooh, the party is going to be so amazing.
+
+options 4
+True			True			Talk about the party 	0-0-0
+True			True			Talk about school			0-0-1
+True			True			Leave and buy supplies	0-0-2
+numDays>0	numDays>0	Talk about witches 		0-0-3
+
+scene 0-0-0
+say Protag Are you ready for the party tonight?
+say girl1 Of course I am! I'm even wearing my costume all day long for it.
+say guy Wow, you must be very excited to wear that all day long.
+say girl1 What, do you not like this?
+say guy No, it's looks great. I'm just worried that you're having too much fun without us.
+say girl1 Good save.
+say Protag Anyway, we need to finish getting my house ready for the party. See you later!
+say girl1 See you guys
+load character None 0
+say guy So we have everything we need from here, now where should we go?
+goto scene 1
+
+scene 0-0-1
+say Protag How is school going for you?
+say girl1 I don't really like talking about it much. School is always hard for me.
+
+goto scene 1
+
+scene 0-0-2
+
+options 4
+True			True			Talk about	girl1					0-0-2-0
+True			True			Ask him who else he invited	0-0-2-1
+True			True			Ask him what his wish is		0-0-2-2
+numDays>0	numDays>0	Talk about witches				0-0-2-3
+
+scene 0-0-2-0
+goto scene 1
+
+scene 0-0-2-1
+goto scene 1
+
+scene 0-0-2-2
+add wish4
+goto scene 1
+
+scene 0-0-2-3
+goto scene 1
+
+scene 0-0-3
+add wish1
+goto scene 1
+
+scene 0-1
+load background schoolDay
+say Protag I wonder who is still here on Halloween...
+load character girl2 0
+say girl2 Hi Protag.
+say Protag (Yeah, this makes sense) Hey, what's up?
+say girl2 School work mostly. I have some studying I need to catch up on.
+
+options 4
+True			True								Talk about school								0-1-0
+True			True								Talk about the party							0-1-1
+numDays>0	cookies>1 and portrait>1	Talk about witches							0-1-2
+numDays>0	cookies>1 and portrait>1	Ask her if she's seen/heard of a witch	0-1-3
+
+scene 0-1-0
+say Protag How is school going for you?
+say girl1 Well, 
+
+scene 0-1-1
+add cookies
+
+scene 0-1-2
+add wish2
+
+scene 0-1-3
+add wish2
+
+scene 0-2
+load background pumpkinDay
+say witch Hello, and welcome to my pumpkin patch!
+
+options 4
+True			True			Buy some pumpkins						0-2-0-0
+pumpkins=1	pumpkins=1	Buy some pumpkins						0-2-0-1
+pumpkins=2	pumpkins=2	Buy some pumpkins						0-2-0-2
+pumpkins=3	pumpkins=3	Buy some pumpkins						0-2-0-3
+pumpkins=4	pumpkins=4	Buy some pumpkins						0-2-0-4
+pumpkins=5	pumpkins=5	Buy some pumpkins						0-2-0-5
+pumpkins=6	pumpkins=6	Buy some pumpkins						0-2-0-6
+pumpkins>6	pumpkins>6	Buy some pumpkins						0-2-0-7
+True			True			Ask about the young girl			0-2-1
+True			True			Invite them to the party			0-2-2
+numDays>0	stickers>0	Talk about Halloween and witches	0-2-3
+
+scene 0-2-0-0
+add pumpkins
+say witch That will be $6
+
+scene 0-2-0-1
+add pumpkins
+say witch That will be another $6
+
+scene 0-2-0-2
+add pumpkins	
+say witch And another pumpkin for a grand total of $18.
+
+scene 0-2-0-3
+add pumpkins
+say witch Wow, you must really like pumpkins. I'll give you a discount on this one. $5.
+
+scene 0-2-0-4
+add pumpkins
+say witch That's the most pumpkins anyone has bought in one sitting. $6 again.
+
+scene 0-2-0-5
+add pumpkins
+say witch How do you plan on carrying these home?
+
+scene 0-2-0-6
+add pumpkins
+say witch I think you have a problem.
+
+scene 0-2-0-7
+add pumpkins
+say witch I'm cutting you off, you can't possibly handle more than 7 pumpkins.
+
+
+scene 0-2-1
+add stickers
+
+scene 0-2-2
+
+scene 0-2-3
+add wish3
+
+
+scene 0-3
+load background houseNight
+load character girl2 0
+say Protag Hey, you came!
+say girl2 Yeah, I finished most of it, so I thought it would be alright if I went out.
+say Protag I'm just glad you're here at all.
+
+options 4
+True			True			Talk to girl1									0-3-0
+True			True			Talk to girl3									0-3-1
+True			True			Talk to witch									0-3-2
+cookies>0	cookies>0	I really like the cookies you gave me	0-3-3
+
+scene 0-3-0
+options 2
+True													True														Try and stop the witch	0-3-0-0
+wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-0-1
+
+scene 0-3-1
+True													True														Try and stop the witch	0-3-1-0
+wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-1-1
+
+scene 0-3-2
+True													True														Try and stop the witch	0-3-2-0
+wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-2-1
+
+scene 0-3-3
+add portrait
+True													True														Try and stop the witch	0-3-3-0
+wish1>0 or wish2>0 or wish3>0 or wish4>0	wish1>0 and wish2>0 and wish3>0 and wish4>0	Use your wishes			0-3-3-1
+
+scene 0-3-0-0
+add numDays
+
+scene 0-3-1-0
+add numDays
+
+scene 0-3-2-0
+add numDays
+
+scene 0-3-3-0
+add numDays
+
+
+scene 0-3-0-1
+
+scene 0-3-1-1
+
+scene 0-3-2-1
+
+scene 0-3-3-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
