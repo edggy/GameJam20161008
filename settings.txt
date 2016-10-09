@@ -1,2 +1,2 @@
-storyFile	story.test.txt
+storyFile	Parsable Script.txt
 dataFile	data.dat
