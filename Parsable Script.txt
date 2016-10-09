@@ -2,7 +2,7 @@ assign character Sakura assets/1.data
 assign character Riley assets/2.data
 assign character Sarah assets/4.data
 assign character Guy assets/3.data
-assign character Alice assets/5.data
+assign character Alice assets/char5.data
 
 assign background mallDay assets/mall-day.data
 assign background mallNight assets/mall-night.data
@@ -10,8 +10,8 @@ assign background pumpkinDay assets/pumpkin patch-day.data
 assign background pumpkinNight assets/pumpkin patch-night.data
 assign background schoolDay assets/school-day.data
 assign background schoolNight assets/school-night.data
-assign background houseDay assets/house-day.data
-assign background houseNight assets/house-night.data
+assign background roomDay assets/room-day.data
+assign background houseNight assets/room-night.data
 assign background startScreen assets/Start screen.data
 assign background map assets/map.data
 
@@ -47,7 +47,7 @@ sub portrait
 add stickers
 sub stickers
 
-load background houseDay
+load background roomDay
 load character Guy 0
 
 say Guy Steve, wake up!
