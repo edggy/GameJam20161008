@@ -1,4 +1,5 @@
 import re
+import os
 
 from story import Story
 
@@ -29,34 +30,53 @@ class State:
         self.data = {}
         
         self.curScene = self.story[self.story.startScene]
+        self.curSceneName = self.story.startScene
         
     def action(self, actionNumber = None):
         if actionNumber is not None:
             self.curScene = self.story[self.optionResults[actionNumber]]
+            self.curSceneName = self.optionResults[actionNumber]
             
         while True:
             act = next(self.curScene)
+            
             if act[0] == 'loadB':
                 self.background = act[1]
                 return (act[0], (act[1],))
+            
             elif act[0] == 'loadC':
-                return (act[0], (act[1],act[2]))
+                return (act[0], tuple(act[1:]))
+            
+            elif act[0] == 'sound':
+                return (act[0], (act[1],))
+            
             elif act[0] == 'res':
-                self.data[act[1]] = 0           
+                self.data[act[1]] = 0
+                self.save()
+                
             elif act[0] == 'add':
                 try:
                     self.data[act[1]] += 1
                 except KeyError:
                     self.data[act[1]] = 1
+                self.save()
+                    
             elif act[0] == 'sub':
                 try:
                     self.data[act[1]] -= 1
                 except KeyError:
                     self.data[act[1]] = -1
+                self.save()
+                    
             elif act[0] == 'say':
                 self.speaker = act[1]
                 self.text = act[2]
-                return act[0]
+                return (act[0], None)
+            
+            elif act[0] == 'goto':
+                self.curScene = self.story[act[1]]
+                self.curSceneName = act[1]
+                
             elif act[0] == 'opts':
                 optList = act[1]
                 pattern = re.compile('|'.join(self.data.keys()))
@@ -81,12 +101,47 @@ class State:
                 for i, row in enumerate(self.options):
                     self.optionResults[i] = row[3]
                     self.options[i] = row[2]
-                return act[0]
+                    
+                return (act[0], None)
+    
+    def makeFirstSave(self, heightScale = 20, width = 20):
         
-    def next(self):
-        pass
-    
-    
+        with open(self.dataFile, 'w') as f:
+            size = len(self.data) * heightScale
+            f.write(str(size).ljust(width - len(os.linesep)) + os.linesep)
+            for i in range(size):
+                f.write(''.ljust(width - len(os.linesep)) + os.linesep)
+            f.flush()
+        self.save()
+            
+        
+    def save(self, heightScale = 20):
+        with open(self.dataFile, 'r+') as f:
+            size = f.readline()
+            width = len(size)
+            size = int(size)
+            
+            if size < len(self.data) * heightScale / 2:
+                self.makeFirstSave(heightScale)
+            else:
+                for key in self.data:
+                    rowNum = (hash(key) % (size - 1)) + 1
+                    f.seek(rowNum * width, os.SEEK_SET)
+                    data = '%s\t%s' % (key, self.data[key])
+                    f.write(data.ljust(width - len(os.linesep)) + os.linesep)
+                
+    def load(self):
+        with open(self.dataFile, 'r') as f:
+            newData = {}
+            size = int(f.readline())
+            for i in range(size):
+                line = f.readline()
+                if line.strip() == '':
+                    continue
+                key, val = line.split('\t', 1)
+                self.data[key] = val
+                
+            self.data = newData
 
 if __name__ == '__main__':
     s = State('settings.txt')

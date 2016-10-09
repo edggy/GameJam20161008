@@ -14,7 +14,7 @@ class Scene(tk.Frame):
         self.scene.pack(fill=tk.BOTH, expand=tk.YES)
         self.background = initBackground
         self.scene.pack(side=tk.TOP)
-        self.characters = [None] * len(self.background)
+        self.characters = [(None, 0)] * len(self.background)
         self.draw()
     
     def changeBackground(self, newBackground, draw = True):
@@ -22,23 +22,23 @@ class Scene(tk.Frame):
         Takes a background image and replaces the current background
         '''
         self.background = newBackground
-        self.characters = [None] * len(self.background)
+        self.characters = [(None, 0)] * len(self.background)
         if draw: 
             self.draw()
     
-    def changeCharacter(self, newCharacter = None, location = 0, draw = True):
+    def changeCharacter(self, newCharacter = None, location = 0, imgNum = 0, draw = True):
         '''
         Takes a person and puts them in the scene at the specified location
         '''
-        self.characters[location] = newCharacter
+        self.characters[location] = (newCharacter, imgNum)
         if draw:
             self.draw()
     
     def draw(self):
         self.background.draw(self)
         for location, character in enumerate(self.characters):
-            if character is not None:
-                character.draw(self, self.background[location])
+            if character[0] is not None:
+                character[0].draw(self, self.background[location], character[1])
         
         
         
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     from character import Character
     
     root = tk.Tk()
-    bg = Background(os.path.join('assets', 'Pumpkin patch-night.data.txt'))
+    bg = Background(os.path.join('assets', 'Pumpkin patch-night.data'))
     char = Character(os.path.join('assets', 'tmpC1.data.txt'))
     
     class Application(tk.Frame):

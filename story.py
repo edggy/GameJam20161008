@@ -2,17 +2,21 @@
 from character import Character
 from background import Background
 
+import simpleaudio as sa
+
 class Story:
     def __init__(self, filename):
         
-        commands = {'assign': self.assign, 'scene': self.scene, 'load': self.load, 'say': self.say, 'options': self.options, 'add':self.add, 'sub':self.sub, 'res':self.res}
+        commands = {'assign': self.assign, 'scene': self.scene, 'load': self.load, 'say': self.say, 
+            'options': self.options, 'add':self.add, 'sub':self.sub, 'res':self.res, 'sound':self.sound, 'goto':self.goto}
         
         self.startScene = None
         self.startBackground = None
         self.curScene = ''
         self.storyScenes = {}
         self.characters = {'None':None}
-        self.backgrounds = {}        
+        self.backgrounds = {}
+        self.sounds = {}
 
         self.state = None
         
@@ -43,6 +47,8 @@ class Story:
             self.characters[name] = Character(filename)
         elif command == 'background':
             self.backgrounds[name] = Background(filename)
+        elif command == 'sound':
+            self.sounds[name] = sa.WaveObject.from_wave_file(filename)
         
     
     def scene(self, data):
@@ -56,8 +62,8 @@ class Story:
     def load(self, data):
         command, name = map(lambda x: x.strip(), data.split(maxsplit=1))
         if command == 'character':
-            name, location = map(lambda x: x.strip(), name.split(maxsplit=1))
-            self.storyScenes[self.curScene].append(('loadC', self.characters[name], int(location)))
+            name, location, numImg = map(lambda x: x.strip(), name.split(maxsplit=2))
+            self.storyScenes[self.curScene].append(('loadC', self.characters[name], int(location), int(numImg)))
         elif command == 'background':
             if self.startBackground is None:
                 self.startBackground = self.backgrounds[name]
@@ -77,6 +83,9 @@ class Story:
     def res(self, data):
         self.storyScenes[self.curScene].append(('res', data.strip()))
         
+    def sound(self, data):
+        self.storyScenes[self.curScene].append(('sound', self.sounds[data.strip()]))
+        
     def options(self, data):
         numLines = int(data.strip())
         self.state = {'state':'options', 'numLines':numLines, 'optionList':[]}
@@ -84,13 +93,16 @@ class Story:
     def parseOptionLine(self, line):
         return [i.strip() for i in filter(None, line.split('\t'))]
     
+    def goto(self, data):
+        self.storyScenes[self.curScene].append(('goto', data.strip()))
+    
     def __getitem__(self, key):
         for line in self.storyScenes[key]:
             yield line
     
         
 if __name__ == '__main__':
-    s = Story('story.txt')
+    s = Story('story.test.txt')
     for line in s['0']:
         print(line)
     print()

@@ -12,15 +12,15 @@ True	False	Quit Game	0
 
 scene 1
 load background tmpBack
-load character tmpGuy 0
+load character tmpGuy 0 0
 
 say tmpGuy Hello!
 say tmpGuy I need to go
 say tmpGuy Cya
 
-load character None 0
+load character None 0 0
 
-load character tmpGuy 0
+load character tmpGuy 0 0
 say tmpGuy Oh sorry
 say tmpGuy What was your name again?
 

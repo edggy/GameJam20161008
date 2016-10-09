@@ -1,2 +1,2 @@
-storyFile	story.txt
+storyFile	story.test.txt
 dataFile	data.dat
