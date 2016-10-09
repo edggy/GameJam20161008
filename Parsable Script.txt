@@ -1,5 +1,5 @@
-assign character girl1 assets/2.data
 assign character girl2 assets/1.data
+assign character girl1 assets/2.data
 assign character girl3 assets/4.data
 assign character guy assets/3.data
 assign character witch assets/char5.data
@@ -137,7 +137,11 @@ goto 1
 scene 0-0-1
 say Steve How is school going for you?
 say girl1 I don't really like talking about it much. School is always hard for me.
-
+say Steve That's fine, the effort you put in is what really matters.
+say girl1 Thanks Steve, you always know what to say. I have to leave, see you later.
+say Steve See you.
+load character None 0
+say guy So where should we go next?
 goto 1
 
 scene 0-0-2
@@ -147,15 +151,23 @@ load character None 0
 say guy What's up Steve?
 
 options 4
-True			True			Talk about	girl1					0-0-2-0
+True			True			Talk about girl1					0-0-2-0
 True			True			Ask him who else he invited	0-0-2-1
 True			True			Ask him what his wish is		0-0-2-2
 numDays>0	numDays>0	Talk about witches				0-0-2-3
 
 scene 0-0-2-0
+say Steve Just thinking about girl1.
+say guy Can't blame you there. I really like her.
+say Steve Yeah, that doesn't surprise me.
+say guy Anyway, we have everyhting we need now, where should we go next?
 goto 1
 
 scene 0-0-2-1
+say Steve Nothing, just thinking about who else you might have invited to the party.
+say guy Just her and some of her friends, I promise.
+say Steve Okay, but if a ton of people I don't know show up, it's on you.
+say guy Whatever, where do we need to go next?
 goto 1
 
 scene 0-0-2-2
@@ -169,6 +181,10 @@ say guy Anyway, we have everything we need now, where should we go next?
 goto 1
 
 scene 0-0-2-3
+say Steve What do you think about witches?
+say guy I don't like talking about witches. It's kind of depressing.
+say Steve (Agreed, destroying hopes and dreams is pretty sad)
+say guy Alright, we have everything from here. Where should we go next?
 goto 1
 
 scene 0-0-3
@@ -466,30 +482,52 @@ load character girl3 0
 say girl3 And have a happy holiday...
 load character None 0
 say Steve You can't defeat us as long as we support each other!
-say witch No! NO! NOOOO! THEIR WISHES ARE STOPPING ME.
+say witch No! NO! NOOOO! THEIR WISHES ARE STOPPING ME. AAAAAHHHHHHHHHH!
 
 scene 0-3-1-1
+say Steve No! We will not have our hopes and dreams reduced to ashes now!
+say Steve We have tried our hardest, we have looked to others for guidance, we have wishes for everyone to come out of this alright.
+say Steve We can't fail here, not as long as we have a wish for a happy future. No matter what, we will win.
+load character guy 0
+say guy For my friends and family...
+load character girl1 0
+say girl1 To always be happy...
+load character girl2 0
+say girl2 For everyone to be okay...
+load character girl3 0
+say girl3 And have a happy holiday...
+load character None 0
+say Steve You can't defeat us as long as we support each other!
+say witch No! NO! NOOOO! THEIR WISHES ARE STOPPING ME. AAAAAHHHHHHHHHH!
 
 scene 0-3-2-1
+say Steve No! We will not have our hopes and dreams reduced to ashes now!
+say Steve We have tried our hardest, we have looked to others for guidance, we have wishes for everyone to come out of this alright.
+say Steve We can't fail here, not as long as we have a wish for a happy future. No matter what, we will win.
+load character guy 0
+say guy For my friends and family...
+load character girl1 0
+say girl1 To always be happy...
+load character girl2 0
+say girl2 For everyone to be okay...
+load character girl3 0
+say girl3 And have a happy holiday...
+load character None 0
+say Steve You can't defeat us as long as we support each other!
+say witch No! NO! NOOOO! THEIR WISHES ARE STOPPING ME. AAAAAHHHHHHHHHH!
 
 scene 0-3-3-1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+say Steve No! We will not have our hopes and dreams reduced to ashes now!
+say Steve We have tried our hardest, we have looked to others for guidance, we have wishes for everyone to come out of this alright.
+say Steve We can't fail here, not as long as we have a wish for a happy future. No matter what, we will win.
+load character guy 0
+say guy For my friends and family...
+load character girl1 0
+say girl1 To always be happy...
+load character girl2 0
+say girl2 For everyone to be okay...
+load character girl3 0
+say girl3 And have a happy holiday...
+load character None 0
+say Steve You can't defeat us as long as we support each other!
+say witch No! NO! NOOOO! THEIR WISHES ARE STOPPING ME. AAAAAHHHHHHHHHH!
