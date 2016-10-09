@@ -119,7 +119,7 @@ options 4
 True			True			Talk about the party 	0-0-0
 True			True			Talk about school			0-0-1
 True			True			Leave and buy supplies	0-0-2
-numDays>0	numDays>0	Talk about Alicees 		0-0-3
+numDays>0	numDays>0	Talk about Witches 		0-0-3
 
 scene 0-0-0
 say Steve Are you ready for the party tonight?
@@ -154,7 +154,7 @@ options 4
 True			True			Talk about Riley					0-0-2-0
 True			True			Ask him who else he invited	0-0-2-1
 True			True			Ask him what his wish is		0-0-2-2
-numDays>0	numDays>0	Talk about Alicees				0-0-2-3
+numDays>0	numDays>0	Talk about Witches				0-0-2-3
 
 scene 0-0-2-0
 say Steve Just thinking about Riley.
@@ -181,17 +181,17 @@ say Guy Anyway, we have everything we need now, where should we go next?
 goto 1
 
 scene 0-0-2-3
-say Steve What do you think about Alicees?
-say Guy I don't like talking about Alicees. It's kind of depressing.
+say Steve What do you think about Witches?
+say Guy I don't like talking about Witches. It's kind of depressing.
 say Steve (Agreed, destroying hopes and dreams is pretty sad)
 say Guy Alright, we have everything from here. Where should we go next?
 goto 1
 
 scene 0-0-3
 add wish1
-say Steve What do you think about Alicees? It is Halloween and all.
-say Riley My friends say that they used to be scared of Alicees, since they kill dreams.
-say Riley But I'm not scared of any Alicees, because they can't stop my wishes no matter what.
+say Steve What do you think about Witches? It is Halloween and all.
+say Riley My friends say that they used to be scared of Witches, since they kill dreams.
+say Riley But I'm not scared of any Witches, because they can't stop my wishes no matter what.
 say Steve What is your wish?
 say Riley This may sound a bit selfish, but I've always believed if you're having fun, everything is okay.
 say Riley So my wish is to always have a good time, regarless of what happens.
@@ -213,7 +213,7 @@ say Sakura School work mostly. I have some studying I need to catch up on.
 options 4
 True			True			Talk about school								0-1-0
 True			True			Talk about the party							0-1-1
-numDays>0	portrait>1	Talk about Alicees							0-1-2
+numDays>0	portrait>1	Talk about Witches							0-1-2
 numDays>0	portrait>1	Ask her if she's seen/heard of a Alice	0-1-3
 
 scene 0-1-0
@@ -248,8 +248,8 @@ goto 1
 
 scene 0-1-2
 add wish2
-say Steve Hey, what do you think of Alicees. It is Halloween.
-say Sakura I used to be really scared of Alicees when I was a little girl.
+say Steve Hey, what do you think of Witches. It is Halloween.
+say Sakura I used to be really scared of Witches when I was a little girl.
 say Steve That's understandable. Stealing people's wishes is kind of scary.
 say Sakura Even though I konw they don't exist, I think if I saw one in real life I would be terrified.
 load character Guy 1
@@ -289,13 +289,13 @@ True			True			Buy some pumpkins						0-2-0-0
 pumpkins=1	pumpkins=1	Buy some pumpkins						0-2-0-1
 pumpkins=2	pumpkins=2	Buy some pumpkins						0-2-0-2
 pumpkins=3	pumpkins=3	Buy some pumpkins						0-2-0-3
-pumpkins=4	pumpkins=4	Buy some pumpkins						0-2-0-4
+#pumpkins=4	pumpkins=4	Buy some pumpkins						0-2-0-4
 pumpkins=5	pumpkins=5	Buy some pumpkins						0-2-0-5
 pumpkins=6	pumpkins=6	Buy some pumpkins						0-2-0-6
 pumpkins>6	pumpkins>6	Buy some pumpkins						0-2-0-7
 True			True			Ask about the young girl			0-2-1
 True			True			Invite them to the party			0-2-2
-numDays>0	stickers>0	Talk about Halloween and Alicees	0-2-3
+numDays>0	stickers>0	Talk about Halloween and Witches	0-2-3
 
 scene 0-2-0-0
 add pumpkins
@@ -364,12 +364,12 @@ goto 1
 
 scene 0-2-3
 add wish3
-say Steve So what do you think of Halloween and Alicees?
+say Steve So what do you think of Halloween and Witches?
 load character Sarah 1
-say Sarah I love Halloween! It's my favorite day of the year. As for Alicees, I don't think they're that bad.
+say Sarah I love Halloween! It's my favorite day of the year. As for Witches, I don't think they're that bad.
 say Steve Really? But don't you know that they wreak havoc on hopes and dreams?
-say Sarah Well, my wish is only for a happy Halloween, so I think any Alicees will let my dream come true.
-say Alice Alicees aren't even real, so you don't need to worry at all.
+say Sarah Well, my wish is only for a happy Halloween, so I think any Witches will let my dream come true.
+say Alice Witches aren't even real, so you don't need to worry at all.
 say Steve Yeah, but if they did, they would definitely come out on Halloween.
 load character Guy 1
 say Guy Either way, I think it's about time we left. Goodbye.
