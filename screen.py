@@ -8,21 +8,22 @@ Has scene on top, options on bottom
 '''
 
 class Screen(tk.Frame):
-    def __init__(self, master = None, initBackground = None):
-        tk.Frame.__init__(self, master)
+    def __init__(self, master = None):
+        super().__init__(master)
+        self.pack()
         self.currentState = state.State("settings.txt")
-        self.currentScene = scene.Scene(self,self.state.background, .75)
+        self.currentScene = scene.Scene(self, self.currentState.background, .5)
         
         #create the five necessary buttons for player choices and hide them
-        self.optionButtons = [Button(self, text=currentState.options[i], command=lambda: self.buttonPress(i)) for i in range(5)]
-        for button in optionButtons:
-            button.lower(self.currentScene.background)
+        self.optionButtons = [tk.Button(self, text=' '*300, command=lambda: self.buttonPress(i)) for i in range(5)]
+        for button in self.optionButtons:
+            button.lower()
             
-        self.nextButton = Button(self, text='Continue', command=self.continueGame)
-        self.textBox = 
+        self.nextButton = tk.Button(self, text='Continue', command=self.continueGame)
+        #self.textBox = 
         
         self.currentScene.pack(side = 'top')
-        for button in optionButtons:
+        for button in self.optionButtons:
             button.pack(side = 'top')
         
         
@@ -34,7 +35,7 @@ class Screen(tk.Frame):
     #only relevant on say or opts because those are when the player needs time to read and then select continue
     def continueGame(self):
         if 'opt' == self.state.action():
-            
+            pass
 
         
     def buttonPress(self, num):
